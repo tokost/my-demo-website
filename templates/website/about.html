@@ -6,16 +6,18 @@
 
 {% block content %}
     <div class="bg-about px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold">About MyWebsite</h1>
+        <h1 class="display-5 fw-bold">O mojej webovej stránke</h1>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">
-                MyWebsite aims at demonstrating the functionality of Bootstrap in web development, specifically focussing on the ease that comes with implementing
-                responsive and mobile-first extensive prebuilt components, and powerful JavaScript plugins.
+                Moj awebová stránka sa zameriava na demonštrovanie funkčnosti Bootstrapu pri vývoji webu a konkrétne sa zameriava na jednoduchosť,
+                ktorá prichádza s implementáciou responzívnej funkcionality t.j. možnosti použitia predovšetkým pre mobilné zariadenia, používa k 
+                tomu ako početné komponenty ktoré boli zostavené vopredkomponenty, tak aj výkonné doplnky JavaScript-ov. Ako používť doplnky 
+                JavaScript-ov je samostatnou problemtikou ktorá tu nie je rozoberaná a s ktorou sa môžete zoznámiť [tu](https://www.w3schools.com/js/)
             </p>
             {% if not user.is_authenticated %}
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <a type="button" class="btn btn-outline-primary btn-lg px-4 gap-3" href="{% url 'account_login' %}">Log  In</a>
-                    <a type="button" class="btn btn-outline-secondary btn-lg px-4 gap-3" href="{% url 'account_signup' %}">Sign Up</a>
+                    <a type="button" class="btn btn-outline-primary btn-lg px-4 gap-3" href="{% url 'account_login' %}">Prihlásenie</a>
+                    <a type="button" class="btn btn-outline-secondary btn-lg px-4 gap-3" href="{% url 'account_signup' %}">Registrácia</a>
                 </div>
             {% endif %}
         </div>
@@ -23,11 +25,15 @@
     <div class="bg-dark text-secondary px-4 py-5 text-center">
       <h1 class="display-5 fw-bold text-white">Back End</h1>
       <div class="col-lg-6 mx-auto">
-        <p class="fs-5 mb-4">MyWebsite is a Full-Stack website that leverages on Django framework as Back-End. It demonstrates the implementation of the model
-            view template architecture, template tags, CRUD operations and HTTP requests and responses in a simple way.
+        <p class="fs-5 mb-4">Moja webová plikcia predstvuje webovú stránku typu full-stack t.j. vývoj back-endu, 
+          ktorý prebiaha sprvidla na vzdilenom serveri a front-endu, ktorý prebieh na klientovi s ktorým 
+          komunikuje uživateľ. Django je tu využívaný na back-end. Ďalej ukazuje nie len na implementáciu databázového 
+          modelu jednoduchým spôsobom ale aj na to ako zobraziť architektúru šablón, značky šablón, operácie CRUD a 
+          požiadavky resp. odpovede v rámci HTTP.
+          
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <a type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" href="https://docs.djangoproject.com/" target="_blank">Django Docs</a>
+          <a type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" href="https://docs.djangoproject.com/" target="_blank">Dokumentácia Django</a>
         </div><br>
           <img class="d-block mx-lg-auto img-fluid" width="600" height="250" src="{% static 'img/django-logo.png' %}" style="align-content: start" alt="Django">
       </div>
@@ -40,11 +46,12 @@
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">Front-End</h1>
-        <p class="lead">MyWebsite front-end leverages on Bootstrap framework. It demonstrates the use of bootstrap forms, cards, navigation bar, different layouts which
-            can be extended to even more rich functionalities using third-party libraries and code.
+        <p class="lead">Front-end mojej webovej stránky využíva rámec Bootstrap. Ukazuje použitie bootstrap formulárov, 
+          kariet, navigačnej lišty, rôznych rozložení prvkov na stránke, ktoré možno rozšíriť na ešte bohatšie funkcie 
+          pomocou knižníc a kódu tretích strán.
         </p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="https://getbootstrap.com/" target="_blank">Bootstrap Docs</a>
+          <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="https://getbootstrap.com/" target="_blank">Dokumentácia Bootstrap</a>
         </div>
       </div>
     </div>

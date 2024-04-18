@@ -170,8 +170,18 @@ DATABASES["default"].update(db_env)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]    # pridane kvoli main.css td.
+STATIC_ROOT = BASE_DIR / "staticfiles"      #  # pridane
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage" # pridane
+
+# User uploaded content - pridane
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Email pridane
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

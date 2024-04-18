@@ -3,23 +3,23 @@ import environ
 
 env = environ.Env(DEBUG=(bool, False))
 
-# Take environment variables from .env file
+# Vezmite premenné prostredia zo súboru .env
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
+# Rýchle nastavenia vývoja - nevhodné do výroby
+# Pozri https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 PROJECT_ENV = "production"
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# BEZPEČNOSTNÉ UPOZORNENIE: tajný kľúč používaný pri výrobe udržujte v tajnosti!
 SECRET_KEY = env("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# BEZPEČNOSTNÉ UPOZORNENIE: nespúšťajte so zapnutým ladením v produkcii!
 DEBUG = False
 
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
-# Content Security Policy using django-csp
+# Zásady zabezpečenia obsahu pomocou django-csp
 MIDDLEWARE.insert(1, "csp.middleware.CSPMiddleware")
 
 DATABASES = {
@@ -33,25 +33,26 @@ DATABASES = {
     }
 }
 
-# Static files configuration
+# Konfigurácia statických súborov
 USE_WHITENOISE, USE_S3, USE_CLOUDINARY = (
     env("USE_WHITENOISE"),
     env("USE_S3"),
     env("USE_CLOUDINARY"),
 )
 if USE_WHITENOISE:
-    # Static file management using WhiteNoise in production
+    # Správa statických súborov pomocou WhiteNoise vo výrobe
     INSTALLED_APPS.insert(7, "whitenoise.runserver_nostatic")
     MIDDLEWARE.insert(2, "whitenoise.middleware.WhiteNoiseMiddleware")
     STATIC_URL = "/static/"
     STATIC_ROOT = BASE_DIR / "static"
     STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-    # User uploaded content
+    
+    # Obsah odovzdaný používateľom
     MEDIA_URL = "/media/"
     MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 if USE_S3:
-    # Static file management using AWS (Feel free to use other)
+    # Správa statických súborov pomocou AWS (neváhajte použiť iné)
     AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
     AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
@@ -66,7 +67,7 @@ if USE_S3:
     ]
 
 if USE_CLOUDINARY:
-    # Static file management using WhiteNoise in production
+    # Správa statických súborov pomocou WhiteNoise vo výrobe
     INSTALLED_APPS.insert(7, "cloudinary_storage")
     INSTALLED_APPS.insert(9, "cloudinary")
 
@@ -102,7 +103,7 @@ if USE_CLOUDINARY:
     STATIC_ROOT = BASE_DIR / "staticfiles"
     MEDIA_ROOT = BASE_DIR / "mediafiles"
 
-# SSL Settings
+# Nastavenia SSL
 SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
@@ -113,6 +114,7 @@ SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 # Email
 EMAIL_BACKEND = env("EMAIL_BACKEND")
 EMAIL_HOST = env("EMAIL_HOST")
@@ -121,7 +123,7 @@ EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_USE_TLS = env("EMAIL_USE_TLS")
 
-# Content Security Policy settings (django-csp)
+# Nastavenia zásad zabezpečenia obsahu (django-csp)
 CSP_IMG_SRC = (
     "'self'",
     "https:",

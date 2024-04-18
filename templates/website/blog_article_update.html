@@ -2,16 +2,16 @@
 
 {% load crispy_forms_tags %}
 
-<title>{% block title %}Edit Blog Post | {{ block.super }}{% endblock %}</title>
+<title>{% block title %}Uprava príspevku blogu | {{ block.super }}{% endblock %}</title>
 
 {% block content %}
     <div class="container">
-    <h1 style="text-align: center">Edit Post</h1>
+    <h1 style="text-align: center">Uprav príspevok</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.media }}
         {{ form|crispy }}
-        <button class="btn btn-secondary">Submit</button>
+        <button class="btn btn-secondary">Potvrdenie</button>
     </form>
     </div>
 {% endblock %}

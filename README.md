@@ -1,8 +1,8 @@
-# Example FullStack Web Project
+# Príklad webového projektu FullStack
 
 ![image](https://user-images.githubusercontent.com/23359514/183810177-cfb570bf-2432-4625-a9d3-9a843735bc3d.png)
 
-## Table of Contents
+## Obsah
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -12,11 +12,11 @@
   - [Deployment](#deployment)
   - [Questions](#questions)
 
-  ## Description
-  This is a simple website that demonstrates full-stack web development using Django and Vanilla JavaScript, CSS and HTML and one that can be replicated in various contexts such as personal portfolio and other websites. There is an accompanying free video tutorial thread for the approach used in writing the code and testing its working. It can be accessed [here](https://bit.ly/3HXmdLd).
+  ## Popis
+  Toto je jednoduchá webová stránka, ktorá demonštruje kompletný vývoj webu pomocou Django a Vanilla JavaScript, CSS a HTML a ktorá sa dá replikovať v rôznych kontextoch, ako sú osobné portfólio a iné webové stránky. K dispozícii je sprievodné bezplatné vlákno s výukovým videom pre prístup použitý pri písaní kódu a testovaní jeho fungovania. Dá sa k nemu dostať [tu](https://bit.ly/3HXmdLd).
 
-  ## Installation
-  This project's software components include:
+  ## Inštalácia
+  Softvérové komponenty tohto projektu zahŕňajú:
   * **Git**
   * **Docker & Docker Compose**
   * **Python**  python==3.10.11
@@ -25,73 +25,73 @@
 
 ### . my
 
-  - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - Used for version control in development of this project.
-  - [Docker Desktop Windows](https://docs.docker.com/desktop/windows/install/) - Software for handling development operations (DevOps) using graphical user interface (GUI) in Windows. Installs Docker Command Line Interface, Docker Compose etc.
-  - [Docker Desktop Linux](https://docs.docker.com/desktop/linux/install/) - Software for handling development operations (DevOps) using graphical user interface (GUI) in Linux.
-  - [Postgres](https://hub.docker.com/_/postgres?tab=tags) - Object Relational Database Management System used to store and support DB operations in this project. Specific version is referenced in [development](docker-compose-dev.yml) and [production](docker-compose-dev.yml) configurations.
-  - [Python](https://www.python.org/downloads/release/python-3810/) - Core programming language used in the development of this project. Specific version is referenced in the [development](Dockerfile-dev) and [production](Dockerfile) build configurations.
-  - [Django](https://docs.djangoproject.com/en/4.0/topics/install/) - Python web development framework that is the main framework used in this project.
+  - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - Používa sa na kontrolu verzií pri vývoji tohto projektu.
+  - [Docker Desktop Windows](https://docs.docker.com/desktop/windows/install/) - Softvér na spracovanie vývojových operácií [(DevOps)](https://about.gitlab.com/topics/devops/) pomocou grafického používateľského rozhrania (GUI) v systéme Windows. Nainštaluje rozhranie príkazového riadka Docker, Docker Compose atď.
+  - [Docker Desktop Linux](https://docs.docker.com/desktop/linux/install/) - Softvér na spracovanie vývojových operácií (DevOps-VývojOperatíva) pomocou grafického používateľského rozhrania (GUI) v systéme Linux.
+  - [Postgres](https://hub.docker.com/_/postgres?tab=tags) - Systém správy objektovo relačných databáz používaný na ukladanie a podporu operácií DB v tomto projekte. Konkrétna verzia je uvedená v konfiguráciach[development](docker-compose-dev.yml) a [production](docker-compose-dev.yml).
+  - [Python](https://www.python.org/downloads/release/python-3810/) - Základný programovací jazyk použitý pri vývoji tohto projektu. Konkrétna verzia (build) je uvedená v konfigurácich [development](Dockerfile-dev) a [production](Dockerfile).
+  - [Django](https://docs.djangoproject.com/en/4.0/topics/install/) - Python webový vývojový rámec, ktorý je hlavným rámcom použitým v tomto projekte.
 
-### Dependencies
-The back-end consists of a Docker container with Python and Django. This project's initial dependencies are listed in the [Pipfile](Pipfile) include: 
-* [__Django__](https://docs.djangoproject.com/) as the base framework
-* [__django-environ__](https://django-environ.readthedocs.org/) for management of environment variables
-* [__markdown__](http://pythonhosted.org/Markdown/siteindex.html) for rendering markdown in HTML
-* [__psycopg__](https://www.psycopg.org/docs/) database adapter to facilitate database connectivity and other operations.
-* [__psycopg-binary__](https://www.psycopg.org/docs/) database adapter to facilitate database connectivity and other operations.
-* [__crispy-bootstrap5__](https://github.com/django-crispy-forms/crispy-bootstrap5) Bootstrap5 template pack for django-crispy-forms.
-* [__django-allauth__](https://django-allauth.readthedocs.io/en/latest/) reusable Django app that allows for both local and social authentication
-* [__django-ckeditor__](https://github.com/django-ckeditor/django-ckeditor) providing editor support in the project.
-* [__whitenoise__](https://github.com/evansd/whitenoise) for managing static and user uploads in developement and production
-* [__pillow__](https://python-pillow.org/) for supporting image processing and capabilities. 
-* [__gunicorn__](https://gunicorn.org/) HTTP server for supporting serving of this project over the web
-* [__dj-database-url__](https://github.com/jazzband/dj-database-url) support for database URL environment variable
-* [__boto3__](https://github.com/boto/boto3) supporting Amazon's S3 capabilities
-* [__django-storages__](https://github.com/jschneier/django-storages) support for Amazon's S3 storage backend. Can be used with other storage backends e.g. Digital Ocean, DropBox, Google Cloud etc. 
-* [__djangorestframework__](https://www.django-rest-framework.org) for provision of WebAPI and REST capabilities
-* [__black__](https://github.com/psf/black) for linting and automatically formatting the code during development
-* [__pytest__](https://docs.pytest.org/en/latest/) for writing tests
-* [__Django Debug Toolbar__](https://django-debug-toolbar.readthedocs.io/) to help with debugging during development
-* [__Faker__](https://faker.readthedocs.io) for generating fake data for use/test in this project (TODO)
-* [__coverage__](https://coverage.readthedocs.io/) for measuring code coverage
-* [__pytest-django__](https://pytest-django.readthedocs.io/) for testing django specific functionalities during development (TODO)
-* [__django-csp__](https://django-csp.readthedocs.io/) for implementing Content Security Policy in this project.
+### Závislosti
+Back-end pozostáva z kontajnera Docker s Pythonom a Django. Počiatočné závislosti tohto projektu sú uvedené v [Pipfile](Pipfile) a obsahujú: 
+* [__Django__](https://docs.djangoproject.com/) ako základný rámec
+* [__django-environ__](https://django-environ.readthedocs.org/) pre správu premenných prostredia
+* [__markdown__](http://pythonhosted.org/Markdown/siteindex.html) na popis značiek pomocou markdown v HTML
+* [__psycopg__](https://www.psycopg.org/docs/) databázový adaptér na uľahčenie pripojenia k databáze a iných operácií.
+* [__psycopg-binary__](https://www.psycopg.org/docs/) databázový adaptér na uľahčenie pripojenia k databáze a iných operácií.
+* [__crispy-bootstrap5__](https://github.com/django-crispy-forms/crispy-bootstrap5) Balík šablón Bootstrap5 pre crispy-forms django.
+* [__django-allauth__](https://django-allauth.readthedocs.io/en/latest/) opakovane použiteľná aplikácia Django, ktorá umožňuje miestne aj sociálne overenie
+* [__django-ckeditor__](https://github.com/django-ckeditor/django-ckeditor) poskytovanie podpory editorov v projekte.
+* [__whitenoise__](https://github.com/evansd/whitenoise) na správu statického a používateľského nahrávania pri vývoji a produkcii
+* [__pillow__](https://python-pillow.org/) na podporu spracovania image a ich schopností. 
+* [__gunicorn__](https://gunicorn.org/) HTTP server na podporu poskytovania tohto projektu cez web
+* [__dj-database-url__](https://github.com/jazzband/dj-database-url) podpora premennej prostredia URL databázy
+* [__boto3__](https://github.com/boto/boto3) podpora schopností Amazonu S3
+* [__django-storages__](https://github.com/jschneier/django-storages) podpora pre backend úložiska Amazon S3. Dá sa použiť s inými backendmi úložiska, napr. Digital Ocean, DropBox, Google Cloud atď. 
+* [__djangorestframework__](https://www.django-rest-framework.org) na poskytovanie funkcií WebAPI a REST
+* [__black__](https://github.com/psf/black) na linting a automatické formátovanie kódu počas vývoja
+* [__pytest__](https://docs.pytest.org/en/latest/) na písanie testov
+* [__Django Debug Toolbar__](https://django-debug-toolbar.readthedocs.io/) pomôcť s ladením počas vývoja
+* [__Faker__](https://faker.readthedocs.io) na generovanie falošných údajov na použitie/testu v tomto projekte (TODO)
+* [__coverage__](https://coverage.readthedocs.io/) na meranie pokrytia kódom
+* [__pytest-django__](https://pytest-django.readthedocs.io/) na testovanie špecifických funkcií django počas vývoja (TODO)
+* [__django-csp__](https://django-csp.readthedocs.io/) na implementáciu Politiky bezpečnosti obsahu v tomto projekte.
 
-### Deployment
-The minimum requirements required to deploy this project is [Docker Engine](). Docker Engine contains docker, [docker compose]() and if on a Desktop environment and prefer a graphical user interface, once can make use of [Docker Desktop]().
-#### Local
-1. Clone the repository via commandline by executing `git clone https://github.com/jkariukidev/my-demo-website.git`
-2. Create the environment variables file from the provided [development sample file](.env_dev.sample). You should now have the `.env` file required by docker-compose.
-3. Edit the environment variables accordingly. They include:
-   * ``PROJECT_ENV`` - The project environment state. Set this to development in your local machine setup.
-   * ``SECRET_KEY`` - Django cryptography key described in detail [here](https://docs.djangoproject.com/en/4.0/ref/settings/#secret-key).
-   * ``DEBUG`` - Variable used in fixing issues in development (hence set to ``True`` in development) and should never be set to ``True`` in 
-       production. [Reference](https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/#debug)
-   * ``ALLOWED_HOSTS`` - List of host/domain names that this Django site can serve.
-   * ``ENGINE`` - Database backend to use. This project uses PostgreSQL backend by default but can be changed in the environment variables.
-   * ``DB_NAME`` - Database to be used by this application.
-   * ``DB_USER`` - Database user/role to be used by this application.
-   * ``DB_PASSWORD`` - Password for the user defined by `DB_USER`.
-   * ``DB_HOST`` - Host of the database server. Defined in the docker-compose files as `database` service.
-   * ``DB_PORT`` - Network port used by the database also defined in the docker-compose files.
-   * ``EMAIL_BACKEND`` - The backend to use for sending emails set to `console` in development. Details are well illustrated [here](https://docs.djangoproject.com/en/4.1/topics/email/).
-   * ``POSTGRES_DB`` - Postgres database name defined in docker-compose files. [postgresql reference](https://www.postgresql.org/docs/14/libpq-envars.html), [docker reference](https://hub.docker.com/_/postgres)
-   * ``POSTGRES_USER`` - Optional variable used together with ``POSTGRES_PASSWORD`` that sets a user and password. Also defined in docker-compose files.
-   * ``POSTGRES_PASSWORD`` - Mandatory variable used to set a superuser password. Must not be empty. Also defined in docker-compose files.
+### Nasadenie
+Minimálne požiadavky potrebné na nasadenie tohto projektu sú [Docker Engine](). Docker Engine obsahuje docker, [docker compose]() a ak na desktopovom prostredí preferujete grafické užívateľské rozhranie,  môžete využiť [Docker Desktop]().
+
+#### Lokalne použitie
+1. Naklonujte úložisko pomocou príkazového riadka spustením `git clone https://github.com/jkariukidev/my-demo-website.git`
+2. Vytvorte súbor premenných prostredia z poskytnutého súboru [development sample file](.env_dev.sample). Teraz by ste mali mať súbor `.env` vyžadovaný docker-compose.
+3. Podľa toho upravte premenné prostredia. Ktoré obsahujú:
+   * ``PROJECT_ENV`` - Stav prostredia projektu. Nastavte to na vývoj v nastavení vášho lokálneho počítača.
+   * ``SECRET_KEY`` - Podrobne opísaný kryptografický kľúč Django [here](https://docs.djangoproject.com/en/4.0/ref/settings/#secret-key).
+   * ``DEBUG`` - Premenná použitá pri riešení problémov vo vývoji (preto ju iba pri vývoji nastavte na ``True``) a nikdy by nemala byť nastavená na  ``True`` v produkcii. [Reference](https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/#debug)
+   * ``ALLOWED_HOSTS`` - Zoznam názvov hostiteľov/domén, ktorým môže slúžiť táto stránka Django.
+   * ``ENGINE`` - Databázový backend na použitie. Tento projekt štandardne používa backend PostgreSQL, ale dá sa zmeniť v premenných prostredia.
+   * ``DB_NAME`` - Databáza, ktorú má táto aplikácia používať.
+   * ``DB_USER`` - Užívateľ/rola databázy, ktorú má táto aplikácia používať.
+   * ``DB_PASSWORD`` - Heslo pre užívateľa definovaného v `DB_USER`.
+   * ``DB_HOST`` - Hostiteľ databázového servera. Definované service `database` v súbore docker-compose.
+   * ``DB_PORT`` - Sieťový port používaný databázou je definovaný aj v súboroch docker-compose.
+   * ``EMAIL_BACKEND`` - Tbackend, ktorý sa má použiť na odosielanie e-mailov nastavený na `console` vo vývoji. Podrobnosti sú dobre znázornené [tu](https://docs.djangoproject.com/en/4.1/topics/email/).
+   * ``POSTGRES_DB`` - Názov databázy Postgres definovaný v súboroch docker-compose. [postgresql reference](https://www.postgresql.org/docs/14/libpq-envars.html), [docker reference](https://hub.docker.com/_/postgres)
+   * ``POSTGRES_USER`` - Voliteľná premenná použitá spolu s ``POSTGRES_PASSWORD`` ktorý nastavuje používateľa a heslo. Tiež definované v súboroch docker-compose.
+   * ``POSTGRES_PASSWORD`` - Povinná premenná používaná na nastavenie hesla superužívateľa. Nesmie byť prázdne. Tiež definované v súboroch docker-compose.
    
-4. Build the required docker images for development by executing `make build-dev`
-5. Run the docker containers by executing `make runserver-dev`
-6. Apply migrations to synchronize the database state with the current set of models and migration using `make migrate-dev`
-7. Load initial data, creating test user account, blog category and blog posts making use of [django fixtures](https://docs.djangoproject.com/en/4.1/howto/initial-data/) and referred to in [initial.json](website/fixtures/initial.json) file.
-   `make load-initial-data` creates sample blog posts, a superuser, and a test user. To see this change, please refresh your browser in the articles page. 
-8. Create superuser (optional) by executing `make superuser-dev`
-9. To log into admin panel, use the details below:
-    * URL: http://localhost:8000/tajiri (local environment)
+4. Vytvorte požadované obrázky ukotvenia na vývoj spustením `make build-dev`
+5. Spustite dokovacie kontajnery spustením `make runserver-dev`
+6. Použite migrácie na synchronizáciu stavu databázy s aktuálnou sadou modelov a pomocou migrácie `make migrate-dev`
+7. Načítajte počiatočné údaje, vytvorte testovací používateľský účet, kategóriu blogu a blogové príspevky s využitím [django fixtures](https://docs.djangoproject.com/en/4.1/howto/initial-data/) a odkazujúci na súbor [initial.json](website/fixtures/initial.json).
+   `make load-initial-data` vytvára vzorové blogové príspevky, superužívateľa a testovacieho používateľa. Ak chcete vidieť túto zmenu, obnovte svoj prehliadač na stránke článkov. 
+8. Vytvorte superužívateľa (voliteľné) spustením `make superuser-dev`
+9. Ak sa chcete prihlásiť do administračného panela, použite podrobnosti nižšie:
+    * URL: http://localhost:8000/tajiri (miestne prostredie)
     * Username: `webadmin`
     * Password: `IAmTheAdmin123`
-10. Check logs using `make logs-dev` or to view the logs interactely use `make logs-interactive-dev`
+10. Skontrolujte protokoly pomocou `make logs-dev` alebo na prezeranie protokolov v interakcii `make logs-interactive-dev`
 
-#### Production
+#### Produkcia
   1. Clone this project using `git clone ` command.
       ```shell
      git clone https://github.com/jkariukidev/my-demo-website.git
@@ -122,25 +122,25 @@ The minimum requirements required to deploy this project is [Docker Engine](). D
 For several other commands, view them in the [Makefile](Makefile)
 
 
-  ## Usage
+  ## Použitie
 
-  - Developing and deploying a modern website
-  - Personal blog article management
-  - User account management including authentication and authorization extensibility.
-  - Emailing and web form security
-  - REST API
+  - Vývoj a nasadenie modernej webovej stránky
+   - Správa osobných blogových článkov
+   - Správa používateľských účtov vrátane rozšírenia autentifikácie a autorizácie.
+   - Zabezpečenie odosielania e-mailov a webových formulárov
+   - REST API
 
-  ## License
+  ## Licencia
   - [LICENSE](LICENSE)
 
-  ## Contributing
+  ## Prispievanie
   If you want to contribute to a project and make it better, your help is very welcome. Contributing is also a great 
   way to learn more about social coding on GitHub, new technologies and their ecosystems and how to make constructive, 
   helpful bug reports, feature requests and the noblest of all contributions: a good, clean pull request.
 
-### making clean pull request
+### vytvorenie požiadavky na čisté vytiahnutie
 
-Look for a project's contribution instructions. If there are succinct, please follow them.
+Vyhľadajte pokyny na príspevok k projektu. Ak sú stručné, postupujte podľa nich.
 
 - Create a personal fork of the project on GitHub by clicking [here](https://github.com/jkariukidev/my-demo-website/fork).
 - Clone the fork on your local machine. Your remote repo on GitHub is called `origin`.
@@ -165,7 +165,7 @@ your extra branch(es).
 And last but not least: Always write your commit messages in the present tense. Your commit message should describe what 
 the commit, when applied, does to the code – not what you did to the code.
 
-## Tests
+## Testy
 Following the guidelines on testing Python projects using:
  - Implementation of Django Unittest in this project. Run the tests using:
    * ``make test-project`` - To run all automatic django tests for the entire project.

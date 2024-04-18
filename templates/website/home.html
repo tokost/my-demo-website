@@ -7,11 +7,12 @@
     <div class="p-5 mb-4 bg-light rounded-3">
       <div class="container-fluid py-5">
       {% if user.is_authenticated %}
-          <h1 class="text-primary display-5 fw-bold">Hi {{ user.username|capfirst }}</h1>
+          <h1 class="text-primary display-5 fw-bold">Ahoj {{ user.username|capfirst }}</h1>
       {% endif %}
-        <h1 class="display-5 fw-bold">Welcome to my website</h1>
-        <p class="col-md-10 fs-4">MyWebsite demonstrates use of Django and Bootstrap in developing interactive websites like this one rapidly and leveraging on a model-view-template design pattern. This
-        website contains various pages, each having a unique design and approach in unpacking the functionalities and richness of Bootstrap and Django. The tutorial for developing this website can be accessed <em><a href="https://www.youtube.com/playlist?list=PLIET7uEHqcqif6wye0sL-XZ9o95zgYmaa">here</a></em>.
+        <h1 class="display-5 fw-bold">Vítaj na mojej webovej stránke</h1>
+        <p class="col-md-10 fs-4">Moja webová stránk ukazuje ako použiť pythonov framework Django a css framework Bootstrap na vývoj webových stránok, ktoré sú interaktívne a prispôsobitelné rôznym druhom zariadení od mobilov cez tablety a notebooky až po stolové počítače. Pri vývoji
+        používame postup ktorý zčína pri datbázovom modely a pokračuje cez adresáciu stránok (urls), view (logiku zobrazenia) až po vytvorenie naväzujúcej šablóny. Tento projekt okrem domovskej stránky obsahuje aj ďalšie nadvezujúce stránky, z ktorých každá má jedinečný dizajn
+        a možnosti uživteľského prístupu ktorý zbezpečujú jednotlivé funkcie a rozsiahle možnosti Bootstrap-u a Djanga. Návod k pôvodnej verii ktorá je určená pre kontajnerovú technológiu Docker od autora Joseph Kariuki ktorú som tu upravil na lokálnu verziu, je možné nájisť na autorovom <em><a href="https://github.com/jkaris/my-demo-website">github-e</a></em> resp. <em><a href="https://www.youtube.com/watch?v=lqn_CmTQ7y0&list=PLIET7uEHqcqif6wye0sL-XZ9o95zgYmaa&index=5">videu Part 1</a></em>.
         </p>
           {% if not user.is_authenticated %}
               <a class="btn btn-outline-info btn-lg" type="button" href="{% url 'account_signup' %}">SignUp</a>
@@ -24,21 +25,23 @@
       <div class="col-md-6">
         <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2>Bootstrap</h2>
-          <p>Bootstrap is a widely used Cascading Style Sheet (CSS) Framework for developing responsive and mobile-first websites.  It is a free and open-source web
-              development framework designed to ease the web development process of websites focusing on responsiveness and mobile-interactivity, and it also comes
-              with a collection of syntax for various template designs.
+          <p>Bootstrap je veľmi často používaný Cascading Style Sheet (CSS) t.j. framework kaskádových štýlov určený na vývoj responzívnych a mobilných webových stránok. Je to
+          bezplatný a tzv. open source (otvorený) webový vývojový rámec navrhnutý na uľahčenie procesu vývoja webových stránok ktorý je zameraný na spracovanie odozvu a mobilnú interaktivitu s uživateľom, a
+          ktorý tiež ponúka celý rad konštrukčných prvkov pre syntax a rôzne vzory šablón.
           </p>
-          <a href="https://getbootstrap.com/docs" target="_blank" class="btn btn-outline-light">Bootstrap Docs</a>
+          <a href="https://getbootstrap.com/docs" target="_blank" class="btn btn-outline-light">Dokumentácia k Bootstrapu</a>
         </div>
       </div>
       <div class="col-md-6">
         <div class="h-100 p-5 bg-light border rounded-3">
           <h2>Django</h2>
-          <p>A widely used Python web framework in developing websites from scratch and rapidly and comes shipped with several functionalities. Django has a
-              rich Object Relational Model (ORM) functionality that favors rapid development via objects attributes to respective table fields and an Model Template
-              View (MTV) architecture just to mention a few. It also has a great, active development community.
+          <p>Je veľmi často používaný webový rámec Pythonu, ktorý je určený pre vývoj webových stránok. Už pri vývoji od samého začiatku ponúka celý rad funkcii,
+             ktoré umožnujú veľmi rýchle napredovanie vo vývoji webovej aplikácie. Django poskytuje bohatý výber funkcii Objektovo Relačného Modelu (ORM) pre prácu
+             s databázou v objektovo orientovanom prostredí, ktorý umožňuje rýchly vývoj aplikácii prostredníctvom atribútov objektov modelu (Model), ktoré 
+             prislúchajú príslušným poliam tabuľky a nadvezujú na šablóny (Template) ktoré sú zobrazovné (View). Aplikácia tzv. architektúry (MTV). Zanedbateľnou
+             ani nie je rozsiahla a aktívnu vývojová komunita, ktorá je garanciou ďaľšieho rozvoja.
           </p>
-            <a href="https://docs.djangoproject.com/" target="_blank" class="btn btn-outline-secondary" role="button">Django Docs</a>
+            <a href="https://docs.djangoproject.com/" target="_blank" class="btn btn-outline-secondary" role="button">Dokumentácia k Django</a>
         </div>
       </div>
     </div>

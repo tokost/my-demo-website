@@ -2,16 +2,16 @@
 
 {% load crispy_forms_tags %}
 
-<title>{% block title %}Delete Blog Post | {{ block.super }}{% endblock %}</title>
+<title>{% block title %}Zmaž príspevok z blogu | {{ block.super }}{% endblock %}</title>
 
 {% block content %}
     <div class="container">
-    <h1 style="text-align: center">Delete Post</h1>
+    <h1 style="text-align: center">Zmaž príspevok</h1>
     <form method="post">
         {% csrf_token %}
-        <p>Do you really want to delete this post?</p>
+        <p>Naozaj chcete zmazať tento príspevok?</p>
         {{ form|crispy }}
-        <button class="btn btn-danger">Submit</button>
+        <button class="btn btn-danger">Potvrdenie</button>
         <a href="{% url 'blog_posts' %}" class="btn btn-primary" type="button">Go back</a>
     </form>
     </div>
