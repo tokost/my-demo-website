@@ -10,9 +10,9 @@
           <h1 class="text-primary display-5 fw-bold">Ahoj {{ user.username|capfirst }}</h1>
       {% endif %}
         <h1 class="display-5 fw-bold">Vítaj na mojej webovej stránke</h1>
-        <p class="col-md-10 fs-4">Moja webová stránk ukazuje ako použiť pythonov framework Django a css framework Bootstrap na vývoj webových stránok, ktoré sú interaktívne a prispôsobitelné rôznym druhom zariadení od mobilov cez tablety a notebooky až po stolové počítače. Pri vývoji
-        používame postup ktorý zčína pri datbázovom modely a pokračuje cez adresáciu stránok (urls), view (logiku zobrazenia) až po vytvorenie naväzujúcej šablóny. Tento projekt okrem domovskej stránky obsahuje aj ďalšie nadvezujúce stránky, z ktorých každá má jedinečný dizajn
-        a možnosti uživteľského prístupu ktorý zbezpečujú jednotlivé funkcie a rozsiahle možnosti Bootstrap-u a Djanga. Návod k pôvodnej verii ktorá je určená pre kontajnerovú technológiu Docker od autora Joseph Kariuki ktorú som tu upravil na lokálnu verziu, je možné nájisť na autorovom <em><a href="https://github.com/jkaris/my-demo-website">github-e</a></em> resp. <em><a href="https://www.youtube.com/watch?v=lqn_CmTQ7y0&list=PLIET7uEHqcqif6wye0sL-XZ9o95zgYmaa&index=5">videu Part 1</a></em>.
+        <p class="col-md-10 fs-4">Moja webová stránk ukazuje na to ako použiť pythonov framework Django a css framework Bootstrap na vývoj webových stránok, ktoré sú interaktívne a prispôsobitelné rôznym druhom zariadení od mobilov cez tablety a notebooky až po stolové počítače. Pri vývoji
+        používame postup ktorý začína pri návrhu datbázového modelu a pokračuje cez adresáciu stránok (urls), view (logiku zobrazenia) až po vytvorenie príslušnej šablóny. Tento projekt okrem domovskej stránky (Začiatok) obsahuje aj ďalšie nadvezujúce stránky, z ktorých každá má jedinečný dizajn
+        a možnosti uživateľského prístupu ktoré sú zabezpečené jednotlivými funkciami a možnosťami ktoré ponúka Bootstrap a Django. Návod k pôvodnej verii ktorá je určená pre kontajnerovú technológiu Docker od autora Josepha Kariukiho som tu upravil na lokálnu verziu. Pôvodnú verziu je možné nájisť na autorovom <em><a href="https://github.com/jkaris/my-demo-website">github-e</a></em> resp. <em><a href="https://www.youtube.com/watch?v=lqn_CmTQ7y0&list=PLIET7uEHqcqif6wye0sL-XZ9o95zgYmaa&index=5">videu Part 1</a></em>.
         </p>
           {% if not user.is_authenticated %}
               <a class="btn btn-outline-info btn-lg" type="button" href="{% url 'account_signup' %}">SignUp</a>
