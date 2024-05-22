@@ -1,19 +1,28 @@
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh -c "gunicorn mywebsite.wsgi:application --bind 0.0.0.0:8000"
     ports:
       - "8000:8000"
     volumes:
       - .:/home/app/website
+    env_file:
+      - .env
     depends_on:
       - db
     environment:
+      DEBUG: ${DEBUG}
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
-      DEBUG: ${DEBUG}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - backend  
 
   db:
     image: postgres:latest
@@ -21,21 +30,43 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
     volumes:
-      - local_pgdata:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: pgadmin4_container
-    restart: always
-    ports:
-      - "8888:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
     volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - pgadmin_data:/var/lib/pgadmin  # uchova data
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8088:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - static:/code/static  # pridane kvoli statickym suborom
+    depends_on:
+      - web
+    networks:
+      - backend
+
+networks:
+  backend:
 
 volumes:
-  local_pgdata:
+  postgres_data:
   pgadmin_data:
+  static:

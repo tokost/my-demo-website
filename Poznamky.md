@@ -67,3 +67,22 @@ Location: c:\users\tomast\appdata\local\programs\python\python310\lib\site-packa
 Requires:
 Required-by:
 
+Ďalšie tipy
+Testovacia konfigurácia:
+
+Pred reštartovaním kontajnera nginx môžete otestovať konfiguráciu nginx spustením:
+
+sh
+
+Kopírovať kód
+docker run --rm -v $(pwd)/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro nginx:latest nginx -t
+Tento príkaz spustí nginx v dočasnom kontajneri a otestuje konfiguráciu na prípadné chyby.
+
+Skontrolujte denníky Nginx:
+
+Ak sa nginx nepodarí spustiť, znova skontrolujte protokoly, aby ste zistili, či nie sú nejaké ďalšie chyby:
+
+sh
+
+Kopírovať kód
+docker-compose logs nginx
