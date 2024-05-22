@@ -66,3 +66,4 @@ License: LGPL with exceptions
 Location: c:\users\tomast\appdata\local\programs\python\python310\lib\site-packages       
 Requires:
 Required-by:
+
