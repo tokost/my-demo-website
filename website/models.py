@@ -5,12 +5,12 @@ from django.utils import timezone
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 
+"""
+modely aplikacie website
 
+model EmailMessage - mailovy kontakt spravy
+"""
 class EmailMessage(models.Model):
-    """
-    Email contact message model.
-    """
-
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=254)
     subject = models.CharField(max_length=128)
@@ -20,11 +20,10 @@ class EmailMessage(models.Model):
         return self.name
 
 
+"""
+model BlogCategory - kategorie blogov
+"""
 class BlogCategory(models.Model):
-    """
-    Blog post category model.
-    """
-
     created = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
     updated = models.DateTimeField(auto_now=True, verbose_name="Created at")
     title = models.CharField(
@@ -40,11 +39,10 @@ class BlogCategory(models.Model):
         return self.title
 
 
+"""
+model BlogPost - jednotlive prispevky
+"""
 class BlogPost(models.Model):
-    """
-    Blog post model.
-    """
-
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     STATUS_CHOICES = (("draft", "Draft"), ("published", "Published"))
     title = models.CharField(max_length=100)

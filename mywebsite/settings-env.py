@@ -1,33 +1,22 @@
-##import environ
-import os
+import environ
 from pathlib import Path
-##import dj_database_url
+import os
+import dj_database_url
 from dotenv import load_dotenv
 
 # Initialize environment variables
-##env = environ.Env(DEBUG=(bool, False))
-
-# Load environment variables from .env file
-load_dotenv()
+env = environ.Env(DEBUG=(bool, False))
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load environment variables from .env file
-##load_dotenv(os.path.join(BASE_DIR, ".env"))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-# Project environment
-PROJECT_ENV = os.getenv("PROJECT_ENV", "development")
+PROJECT_ENV = env("PROJECT_ENV", default="development")
 
-# Secret key
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback_secret_key')
-
-# Debug mode
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
-
-# Allowed hosts
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
-print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")  # Print the ALLOWED_HOSTS value to debug
-
+SECRET_KEY = env('SECRET_KEY', default='fallback_secret_key')
+DEBUG = env.bool('DEBUG', default=False)
+ALLOWED_HOSTS = env('ALLOWED_HOSTS', default='localhost').split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -91,7 +80,6 @@ DATABASES = {
     )
 }
 '''
-'''
 DATABASES = {
     'default': {
         'ENGINE': env('POSTGRES_ENGINE', default='django.db.backends.postgresql_psycopg2'),
@@ -102,19 +90,6 @@ DATABASES = {
         'PORT': env('POSTGRES_PORT', default='5432'),
     }
 }
-'''
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_NAME'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
-        'PORT': '5432',
-    }
-}
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -131,11 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'sk'             # Specifies the language code for the application.
-TIME_ZONE = 'Europe/Bratislava'     # 'UTC' (Coordinated Universal Time)
-USE_I18N = True                     # Specifies the default time zone for the application. 
-USE_TZ = True                       # This setting affects how Django interprets and 
-                                    # displays date and time information.
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
+USE_I18N = True
+USE_TZ = True
+
 AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = '/'
@@ -170,8 +145,3 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
 }
-
-# Session settings
-##SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Use database-backed sessions
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'  # Use cache-backed sessions
-# SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'  # Use combined database and cache-backed sessions

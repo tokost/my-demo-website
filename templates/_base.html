@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Začiatok</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'about' %}">O stránke</a>
@@ -43,7 +43,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li>
-                                    <a class="dropdown-item" href="{% url 'blog_posts' %}">Články</a>
+                                    <a class="dropdown-item" href="{% url 'blog_posts' %}">Príspevky</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{% url 'blog_list_api' %}">API</a>
@@ -82,7 +82,7 @@
                     </form>
                     {% else %}
                     <form class="d-flex flex-nowrap" method="get" action="{% url 'blog_posts_search' %}">
-                        <input class="form-control me-2" type="search" placeholder="Zadaj čo má nájisť" aria-label="Search" name="q"
+                        <input class="form-control me-2" type="search" placeholder="Čo má nájisť v názve" aria-label="Search" name="q"
                             disabled>
                         <button class="btn btn-outline-success disabled" type="submit">Nájdi</button>
                     </form>

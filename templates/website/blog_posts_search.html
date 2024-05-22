@@ -1,12 +1,12 @@
 {% extends '_base.html' %}
 
-<title>{% block title %}Blog Search | {{ block.super }}{% endblock %}</title>
+<title>{% block title %}Hľdanie v blogu | {{ block.super }}{% endblock %}</title>
 
 {% block content %}
     <div class="container">
-        <h1>Blog Search</h1>
+        <h1>Hľadanie v blogu</h1>
         {% if blog_search_list.count == 0 %}
-            <p>Sorry, there are no blog posts to show here.
+            <p>Prepáčte nexexistuje žiaden blog ktorý by ste mohli vidieť.
             </p>
         {% else %}
             {% for post in blog_search_list %}
@@ -18,7 +18,7 @@
                                 {% autoescape off %}
                                     <p class="card-text mb-auto">{{ post.body|truncatechars:50 }}.</p>
                                 {% endautoescape %}
-                                <a href="{% url 'blog_article' post.pk %}" class="stretched-link">Continue reading</a>
+                                <a href="{% url 'blog_article' post.pk %}" class="stretched-link">Pokračovať v čítaní</a>
                             </div>
                         </div>
                 </div>

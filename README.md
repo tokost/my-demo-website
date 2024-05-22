@@ -1,3 +1,9 @@
+$ python -m venv venv
+
+$ . venv/Scripts/activate
+
+$ pip install -r requirements.txt
+
 # Príklad webového projektu FullStack
 
 ![image](https://user-images.githubusercontent.com/23359514/183810177-cfb570bf-2432-4625-a9d3-9a843735bc3d.png)
@@ -86,7 +92,7 @@ Minimálne požiadavky potrebné na nasadenie tohto projektu sú [Docker Engine]
    `make load-initial-data` vytvára vzorové blogové príspevky, superužívateľa a testovacieho používateľa. Ak chcete vidieť túto zmenu, obnovte svoj prehliadač na stránke článkov. 
 8. Vytvorte superužívateľa (voliteľné) spustením `make superuser-dev`
 9. Ak sa chcete prihlásiť do administračného panela, použite podrobnosti nižšie:
-    * URL: http://localhost:8000/tajiri (miestne prostredie)
+    * URL: http://localhost:8000/tajiri (miestne prostredie) zmenené na [admin](http://localhost:8000/admin)
     * Username: `webadmin`
     * Password: `IAmTheAdmin123`
 10. Skontrolujte protokoly pomocou `make logs-dev` alebo na prezeranie protokolov v interakcii `make logs-interactive-dev`
@@ -195,3 +201,83 @@ If you have any questions you can contact me!
 - [Django Documentation](https://docs.djangoproject.com/)
 - [Learn Django](https://learndjango.com/)
 - [Docker Documentation](https://docs.docker.com/)
+
+
+## PRENOS ÚDAJOV Z SQLite do PostgreSQL
+
+1. Vytvoríme si zálohu celej databázy dumpdata zariadenia SQLite.
+najprv musíte urobiť zálohu celej SQLiteDB do formátu JSON pomocou nižšie uvedeného príkazu
+~~~
+python manage.py dumpdata > whole.json
+~~~
+
+2. Ak nemáme PostgreSQL tok kho nainštalujeme z tejto adresy:
+
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+
+3. Pomocou PostgreSQL Shell-u (psql) ktorý sa nachádza pri inštalácii PostgreSQL vytvoríme DB **my_db** a prístupové údaje:
+~~~
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+
+psql (16.2)
+WARNING: Console code page (852) differs from Windows code page (1250)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# 
+~~~
+
+4. Zadáme údaje pre konektivitu na PostgreSQL DB do setting.py :
+V settings.py vytvoríme Postgres DB pomocou používateľa a hesla.
+~~~
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'my_db',
+        'USER' : 'postgres',
+        'PASSWORD' : '03091953-Tomo',
+        'HOST' : 'localhost',
+        'PORT' : '5432',
+    }
+}
+~~~
+
+5. Nainštaluje konektor PostgreSQL DB pre Python
+
+Psycopg je najpopulárnejší databázový adaptér PostgreSQL pre programovací jazyk Python . Jeho hlavnými vlastnosťami sú úplná implementácia špecifikácie Python DB API 2.0 a bezpečnosť vlákien (viacero vlákien môže zdieľať rovnaké pripojenie). https://docs.yugabyte.com/preview/reference/drivers/python/postgres-psycopg2-reference/ 
+~~~
+$ pip install psycopg2
+~~~
+6. Vymažte databázu:
+$ rm db.sqlite3
+
+7. Odstráňte všetky súbory migrácie (.py) napr. manualne, pretože nepotrebujeme všetky staré migrácie.
+$ rm users/migrations/*
+
+Teraz odstráňte typy obsahu (povinné kroky), inak budete mať krásne miliardy chýb
+~~~
+$ python manage.py shell
+
+>>> from django.contrib.contenttypes.models import ContentType
+>>> ContentType.objects.all().delete()
+>>> ^Z
+
+7. Namiesto toho vytvoríme jeden súbor migrácie na aplikáciu.
+~~~
+$ python manage.py makemigrations
+$ python manage.py migrate
+~~~
+
+8. Importujte prípravok pomocou údajov o zaťažení.
+Jedným z hlavných krokov je deaktivácia všetkých signálov v projektoch, inak získate jedinečné obmedzenie alebo už vytvorený objekt.
+~~~
+$ python manage.py loaddata whole.json
+~~~
+To je všetko, napriek varovaniu, že adresár so statickými súbormi neexistuje. Toto upozornenie nás len informuje, že zadaný adresár pre statické súbory neexistuje, čo môže, ale nemusí byť relevantné pre našu aktuálnu operáciu.
+
+Údaje z SQLite sa úspešne presunuli do PostgreSQL, čo si môžeme overiť v phAdmin4 alebo nainštalovaním rozšírenia PostgreSQL od Chris Kolkman-a do VS-Code.
