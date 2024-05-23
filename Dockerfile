@@ -22,7 +22,7 @@ COPY requirements.txt /code/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Ensure the .env file is copied
-COPY .env /code/.env
+# COPY .env /code/.env
 
 # Copy application code
 ADD ./ /code/
