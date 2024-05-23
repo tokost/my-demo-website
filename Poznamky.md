@@ -501,3 +501,174 @@ pipenv install
 ## Záver
 
 Pipfile a Pipfile.lock poskytujú moderný a efektívny spôsob správy závislostí projektu Python. Používaním pipenv spolu s týmito súbormi môžete zabezpečiť konzistentné, bezpečné a spravovateľné prostredia pre svoje projekty Python.
+
+>##Použitie nie root užívateľa
+Render log UPOZORNENIE: Spustenie pipu ako 'root' užívateľa môže viesť k porušeniu oprávnení a konfliktnému správaniu so správcom systémových balíkov. Namiesto toho sa odporúča použiť virtuálne prostredie: https://pip.pypa.io/warnings/venv
+
+Upozornenie, ktoré sa vám zobrazuje, je bežné upozornenie pri spustení pip ako užívateľ root v kontajneri Docker. Aj keď je tento postup vo všeobecnosti v poriadku v izolovanom prostredí kontajnera, je dôležité zabezpečiť, aby to neviedlo k problémom s povoleniami alebo konfliktom.
+
+Tu je postup, ako riešiť a vylepšiť nastavenie Docker:
+
+## Použite iného používateľa ako root v Dockeri
+
+1. Pridať používateľa iného typu než root :
+
+  * Vytvorte nového používateľa a skupinu vo svojom súbore Dockerfile.
+  * Pred inštaláciou závislostí Pythonu a spustením aplikácie prejdite na nového používateľa.
+
+2. Upravte súbor Docker :
+~~~
+# Use an Alpine-based Python image
+FROM python:3.8-alpine
+
+# Create a non-root user and group
+RUN addgroup -S mygroup && adduser -S myuser -G mygroup
+
+# Set working directory
+RUN mkdir /code
+WORKDIR /code
+
+# Install system dependencies and keep them for the entire build process
+RUN apk update && \
+    apk add --no-cache \
+    gcc \
+    python3-dev \
+    musl-dev \
+    postgresql-dev \
+    libffi-dev \
+    openssl-dev \
+    build-base
+
+# Copy requirements file and install Python dependencies
+COPY requirements.txt /code/
+
+# Switch to non-root user before running pip install
+USER myuser
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Switch back to root to copy the rest of the application code
+USER root
+COPY .env /code/.env
+COPY ./ /code/
+
+# Set permissions for the non-root user
+RUN chown -R myuser:mygroup /code
+
+# Switch to non-root user to run the application
+USER myuser
+
+# Make port available to the world outside this container
+EXPOSE 8000
+
+# Define environment variable
+ENV NAME World
+
+# Run the application
+CMD ["sh", "-c", "gunicorn mywebsite.wsgi:application --bind 0.0.0.0:$PORT"]
+~~~
+
+## Vysvetlenie:
+
+1. Vytvorte používateľa iného typu než root :
+
+  * RUN addgroup -S mygroup && adduser -S myuser -G mygroup vytvorí novú skupinu mygroup a nového používateľa myuser v tejto skupine.
+
+2. Nastaviť pracovný adresár :
+
+  * RUN mkdir /code vytvorí pracovný adresár.
+  * WORKDIR /code nastaví ho ako pracovný adresár.
+
+3. Inštalácia systémových závislostí :
+
+  * Príkazy apk nainštalujú potrebné systémové balíky.
+
+4. Nainštalujte závislosti Pythonu ako iný ako root :
+
+  * COPY requirements.txt /code/ skopíruje súbor požiadaviek.
+  * USER myuser prepne na iného používateľa ako root.
+  * RUN pip install --no-cache-dir -r requirements.txt nainštaluje závislosti Pythonu ako používateľ bez oprávnenia root.
+
+5. Ak chcete skopírovať kód aplikácie, prejdite späť na koreňový adresár :
+
+  * USER root prepne späť na používateľa root, aby skopíroval zvyšok kódu aplikácie a nastavil povolenia.
+
+6. Nastaviť povolenia pre iného používateľa ako root :
+
+  * RUN chown -R myuser:mygroup /code zmení vlastníctvo adresára /code na užívateľa a skupinu bez oprávnenia root.
+
+7. Spustite aplikáciu ako iný ako root :
+
+  * USER myuser prepne na iného používateľa ako root na spustenie aplikácie.
+
+Dodržaním týchto krokov zaistíte, že aplikácia beží so správnymi povoleniami a znížite riziko potenciálnych problémov súvisiacich so spustením ako užívateľ root. Tento prístup dodržiava osvedčené postupy pre zabezpečenie a udržiavateľnosť v prostrediach Docker.
+
+>## Neustála zmena IP databázy pri connection pgAdmin
+
+zväzky docker-compose.yml obsahujú takéto údaje, ale problém je s názvom hostiteľa/adresou databázy, ktorá sa neustále mení
+
+Ak chcete zachovať konfiguráciu pripojenia v pgAdmin, keď sa zmení názov hostiteľa alebo adresa databázy, máte niekoľko možností:
+
+Použiť názov služby Docker Compose : Ak sú kontajner pgAdmin aj kontajner databázy súčasťou rovnakej siete Docker Compose, ako názov hostiteľa v pgAdmin môžete použiť názov služby kontajnera databázy. Interné rozlíšenie DNS Docker zabezpečí, že názov služby sa preloží na správnu IP adresu kontajnera.
+
+Použiť siete Docker : Uistite sa, že oba kontajnery sú pripojené k rovnakej sieti Docker, čo im umožní navzájom komunikovať pomocou názvov kontajnerov alebo aliasov.
+
+Použiť pevnú IP adresu : Priraďte pevnú IP adresu kontajneru databázy. Môžete to urobiť zadaním ipv4_addressmožnosti v docker-compose.ymlsúbore. Potom použite túto pevnú IP adresu ako názov hostiteľa v pgAdmin.
+
+Použiť premenné prostredia : Počas spúšťania kontajnera odovzdajte názov hostiteľa databázy/adresu do pgAdmin ako premennú prostredia. Túto premennú môžete definovať v docker-compose.ymlsúbore alebo v súbore externého prostredia.
+
+Tu je príklad toho, ako môžete definovať informácie o pripojení k databáze v docker-compose.ymlsúbore:
+~~~
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DB_HOST: db  # Use service name of the database container
+      PGADMIN_DB_PORT: 5432  # Use the port exposed by the database container
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - backend
+~~~
+V tomto príklade PGADMIN_DB_HOSTje nastavené na db, čo je názov služby databázového kontajnera. Uistite sa, že kontajner databázy je dostupný z kontajnera pgAdmin pomocou tohto názvu služby. V prípade potreby upravte port ( PGADMIN_DB_PORT) podľa toho, ako je nakonfigurovaný databázový kontajner.
+
+>##Správa kontajnerov Dockera - zachovanie IP adresy DB PostgreSQL
+
+Zdá sa, že na správu kontajnerov používate Docker Compose a čelíte problému, keď sa po reštartovaní kontajnera zmení adresa IP kontajnera PostgreSQL. Môže sa to stať, pretože Docker Compose spravuje svoje vlastné siete a keď sa kontajnery reštartujú, môžu získať nové adresy IP priradené Dockerom.
+
+Aby ste zabezpečili, že IP adresa kontajnera PostgreSQL zostane konzistentná, môžete použiť jeden z nasledujúcich prístupov:
+
+Použiť názov služby : Namiesto spoliehania sa na adresy IP môžete použiť názov služby kontajnera PostgreSQL v rámci konfigurácie pgAdmin. Docker Compose automaticky nastaví rozlíšenie DNS, aby bolo možné použiť názvy služieb na pripojenie k iným kontajnerom v rámci tej istej siete.
+~~~
+pgadmin:
+  image: dpage/pgadmin4
+  environment:
+    PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+    PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    PGADMIN_DB_HOST: db  # Use the service name of the database container
+    PGADMIN_DB_PORT: 5432  # Use the port exposed by the database container
+~~~
+
+Použiť pevnú IP adresu : Kontajnerom PostgreSQL môžete priradiť pevnú IP adresu pomocou ipv4_addressmožnosti Docker Compose. To zaisťuje, že IP adresa zostane konštantná počas reštartov kontajnera.
+~~~
+db:
+  image: postgres:latest
+  environment:
+    POSTGRES_DB: ${POSTGRES_DB}
+    POSTGRES_USER: ${POSTGRES_USER}
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  ports:
+    - "5432:5432"
+  volumes:
+    - my-demo-website-develop_postgres_data:/var/lib/postgresql/data
+  networks:
+    backend:
+      ipv4_address: 172.28.0.2  # Assign a fixed IP address
+~~~
+
+Vyberte si prístup, ktorý najlepšie vyhovuje vášmu prípadu použitia a zaisťuje konzistentnú konektivitu medzi vašimi kontajnermi pgAdmin a PostgreSQL.
