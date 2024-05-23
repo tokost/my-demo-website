@@ -12,3 +12,5 @@ venv/
 **/coverage
 **/cover
 
+# Do not ignore .env file
+!.env
