@@ -29,7 +29,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 # Allowed hosts
 ##ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 ####ALLOWED_HOSTS = [config('WEB_HOST', default='localhost'), 'localhost']
-ALLOWED_HOSTS = ['my-demo-website-4.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['my-demo-website-5.onrender.com', 'localhost', '127.0.0.1']
 #print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")  # Print the ALLOWED_HOSTS value to debug
 
 
