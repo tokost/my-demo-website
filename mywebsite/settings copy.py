@@ -109,10 +109,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_NAME'),
-        'USER': config('POSTGRES_USER'),
-        'PASSWORD': config('POSTGRES_PASSWORD'),
-        'HOST': config('POSTGRES_HOST', 'localhost'),
+        'NAME': os.getenv('POSTGRES_NAME'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
         'PORT': '5432',
     }
 }
@@ -133,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'sk-SK'             # Specifies the language code for the application.
+LANGUAGE_CODE = 'sk'             # Specifies the language code for the application.
 TIME_ZONE = 'Europe/Bratislava'     # 'UTC' (Coordinated Universal Time)
 USE_I18N = True                     # Specifies the default time zone for the application. 
 USE_TZ = True                       # This setting affects how Django interprets and 

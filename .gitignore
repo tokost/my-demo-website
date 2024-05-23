@@ -170,5 +170,8 @@ atlassian-ide-plugin.xml
 !.vscode/extensions.json
 .history
 
-
 db-data/
+
+# Mnou pridane
+Poznamky.md
+README.md
