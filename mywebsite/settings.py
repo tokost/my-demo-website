@@ -123,6 +123,7 @@ DATABASES = {
         'PASSWORD': config('POSTGRES_PASSWORD'),
         'HOST': config('POSTGRES_HOST', 'localhost'),
         'PORT': '5432',
+        'DB_HOST': 'db'
     }
 }
 
