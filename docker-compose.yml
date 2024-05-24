@@ -51,9 +51,10 @@ services:
     depends_on:
       - db
     volumes:
-      - my-demo-website-develop_pgadmin_data:/var/lib/pgadmin  # uchova data
+      - my-demo-website-develop_pgadmin_data:/var/lib/pgadmin  # uchova data ale bez IP
     networks:
       - backend
+
 
   nginx:
     image: nginx:latest
@@ -69,6 +70,7 @@ services:
 
 networks:
   backend:
+    driver: bridge
 
 volumes:
   my-demo-website-develop_postgres_data:
