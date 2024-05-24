@@ -10,6 +10,7 @@ from decouple import config     # funkcia používanú na čítanie konfiguračn
 ##env = environ.Env(DEBUG=(bool, False))
 
 # Load environment variables from .env file
+##load_dotenv(dotenv_path=os.path.join(BASE_DIR, '.env'))
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ENV = os.getenv("PROJECT_ENV", "development")
 
 # Secret key
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback_secret_key')
+DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key')
+#print("DJANGO_SECRET_KEY: ", os.getenv('DJANGO_SECRET_KEY'))
 
 # Debug mode
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
@@ -29,10 +32,13 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 # Allowed hosts
 ##ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 ####ALLOWED_HOSTS = [config('WEB_HOST', default='localhost'), 'localhost']
-ALLOWED_HOSTS = ['my-demo-website-fmnd.onrender.com', 'localhost', '127.0.0.1']
+#ALLOWED_HOSTS = ['my-demo-website-fmnd.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [os.getenv('RENDER_SERVICE_NAME') + '.onrender.com', 'localhost']
 #print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")  # Print the ALLOWED_HOSTS value to debug
 
-
+#Example of using the service name
+#SERVICE_NAME = os.getenv('RENDER_SERVICE_NAME', 'my-demo-website-fmnd.onrender.com')
+SERVICE_NAME = os.getenv('RENDER_SERVICE_NAME', 'default-service-name')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -135,6 +141,21 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
 
 LANGUAGE_CODE = 'sk-SK'             # Specifies the language code for the application.
 TIME_ZONE = 'Europe/Bratislava'     # 'UTC' (Coordinated Universal Time)
