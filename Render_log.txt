@@ -1,0 +1,469 @@
+Search
+
+
+Live tail
+GMT+2
+
+
+==> Cloning from https://github.com/tokost/my-demo-website
+==> Checking out commit b4c8b59f96113977aea62632ea1343bb8a2b3288 in branch main
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.01kB done
+#1 DONE 0.0s
+#2 [internal] load metadata for docker.io/library/python:3.8-alpine
+#2 ...
+#3 [auth] library/python:pull render-prod/docker-mirror-repository/library/python:pull token for us-west1-docker.pkg.dev
+#3 DONE 0.0s
+#2 [internal] load metadata for docker.io/library/python:3.8-alpine
+#2 DONE 1.2s
+#4 [internal] load .dockerignore
+#4 transferring context: 180B done
+#4 DONE 0.0s
+#5 [internal] load build context
+#5 DONE 0.0s
+#6 [1/9] FROM docker.io/library/python:3.8-alpine@sha256:2233515182f8264d4bfb73a085cecd5bf18bb7d1f842395bf52a49abf003170b
+#6 resolve docker.io/library/python:3.8-alpine@sha256:2233515182f8264d4bfb73a085cecd5bf18bb7d1f842395bf52a49abf003170b 0.0s done
+#6 ...
+#5 [internal] load build context
+#5 transferring context: 1.92MB 0.0s done
+#5 DONE 0.1s
+#6 [1/9] FROM docker.io/library/python:3.8-alpine@sha256:2233515182f8264d4bfb73a085cecd5bf18bb7d1f842395bf52a49abf003170b
+#6 sha256:964683ac7c06017acf384975be8ff4c6fd6bd9917528dba9b0496d3211744762 0B / 2.85MB 0.2s
+#6 sha256:3292fffb3ff2eff0ed47b4cf3a52d39788f267924aba32eef94c7ae304ecd482 243B / 243B 0.2s done
+#6 sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7 0B / 11.36MB 0.2s
+#6 sha256:d2c04aca259ccbbbd92a78c0452532b76b5b2812b06999bafaaae910297770a9 0B / 463.23kB 0.2s
+#6 sha256:964683ac7c06017acf384975be8ff4c6fd6bd9917528dba9b0496d3211744762 2.85MB / 2.85MB 0.3s done
+#6 sha256:d25f557d7f31bf7acfac935859b5153da41d13c41f2b468d16f729a5b883634f 0B / 3.62MB 0.2s
+#6 sha256:d2c04aca259ccbbbd92a78c0452532b76b5b2812b06999bafaaae910297770a9 463.23kB / 463.23kB 0.5s done
+#6 sha256:d25f557d7f31bf7acfac935859b5153da41d13c41f2b468d16f729a5b883634f 3.62MB / 3.62MB 0.3s done
+#6 extracting sha256:d25f557d7f31bf7acfac935859b5153da41d13c41f2b468d16f729a5b883634f
+#6 sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7 1.05MB / 11.36MB 0.6s
+#6 extracting sha256:d25f557d7f31bf7acfac935859b5153da41d13c41f2b468d16f729a5b883634f 0.1s done
+#6 extracting sha256:d2c04aca259ccbbbd92a78c0452532b76b5b2812b06999bafaaae910297770a9
+#6 sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7 2.10MB / 11.36MB 0.9s
+#6 sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7 3.15MB / 11.36MB 1.2s
+#6 sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7 6.29MB / 11.36MB 1.4s
+#6 extracting sha256:d2c04aca259ccbbbd92a78c0452532b76b5b2812b06999bafaaae910297770a9 0.8s done
+#6 sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7 11.36MB / 11.36MB 1.5s
+#6 sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7 11.36MB / 11.36MB 1.5s done
+#6 extracting sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7
+#6 extracting sha256:b7072cd997c75bfdf347135a77c9963804feaef8ef4ada38bcf0656786c2ffb7 0.6s done
+#6 extracting sha256:3292fffb3ff2eff0ed47b4cf3a52d39788f267924aba32eef94c7ae304ecd482 0.0s done
+#6 extracting sha256:964683ac7c06017acf384975be8ff4c6fd6bd9917528dba9b0496d3211744762
+#6 extracting sha256:964683ac7c06017acf384975be8ff4c6fd6bd9917528dba9b0496d3211744762 0.3s done
+#6 DONE 2.6s
+#7 [2/9] RUN addgroup -S mygroup && adduser -S myuser -G mygroup
+#7 DONE 0.1s
+#8 [3/9] RUN mkdir /code
+#8 DONE 0.1s
+#9 [4/9] WORKDIR /code
+#9 DONE 0.0s
+#10 [5/9] RUN apk update &&     apk add --no-cache     gcc     python3-dev     musl-dev     postgresql-dev     libffi-dev     openssl-dev     build-base
+#10 0.065 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/x86_64/APKINDEX.tar.gz
+#10 0.205 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/x86_64/APKINDEX.tar.gz
+#10 0.472 v3.20.0-7-g04aec3b1d0c [https://dl-cdn.alpinelinux.org/alpine/v3.20/main]
+#10 0.472 v3.20.0-6-g38613459a10 [https://dl-cdn.alpinelinux.org/alpine/v3.20/community]
+#10 0.472 OK: 24144 distinct packages available
+#10 0.540 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/x86_64/APKINDEX.tar.gz
+#10 0.649 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/x86_64/APKINDEX.tar.gz
+#10 0.894 (1/51) Installing libgcc (13.2.1_git20240309-r0)
+#10 0.906 (2/51) Installing jansson (2.14-r4)
+#10 0.916 (3/51) Installing libstdc++ (13.2.1_git20240309-r0)
+#10 0.940 (4/51) Installing zstd-libs (1.5.6-r0)
+#10 0.955 (5/51) Installing binutils (2.42-r0)
+#10 1.023 (6/51) Installing libmagic (5.45-r1)
+#10 1.054 (7/51) Installing file (5.45-r1)
+#10 1.064 (8/51) Installing libgomp (13.2.1_git20240309-r0)
+#10 1.077 (9/51) Installing libatomic (13.2.1_git20240309-r0)
+#10 1.087 (10/51) Installing gmp (6.3.0-r1)
+#10 1.101 (11/51) Installing isl26 (0.26-r1)
+#10 1.126 (12/51) Installing mpfr4 (4.2.1-r0)
+#10 1.141 (13/51) Installing mpc1 (1.3.1-r1)
+#10 1.152 (14/51) Installing gcc (13.2.1_git20240309-r0)
+#10 1.841 (15/51) Installing libstdc++-dev (13.2.1_git20240309-r0)
+#10 1.992 (16/51) Installing musl-dev (1.2.5-r0)
+#10 2.060 (17/51) Installing g++ (13.2.1_git20240309-r0)
+#10 2.256 (18/51) Installing make (4.4.1-r2)
+#10 2.268 (19/51) Installing fortify-headers (1.1-r3)
+#10 2.279 (20/51) Installing patch (2.7.6-r10)
+#10 2.290 (21/51) Installing build-base (0.5-r3)
+#10 2.300 (22/51) Installing linux-headers (6.6-r0)
+#10 2.418 (23/51) Installing pkgconf (2.2.0-r0)
+#10 2.429 (24/51) Installing libffi-dev (3.4.6-r0)
+#10 2.443 (25/51) Installing openssl-dev (3.3.0-r2)
+#10 2.475 (26/51) Installing libpq (16.3-r0)
+#10 2.488 (27/51) Installing libpq-dev (16.3-r0)
+#10 2.508 (28/51) Installing libecpg (16.3-r0)
+#10 2.523 (29/51) Installing libecpg-dev (16.3-r0)
+#10 2.542 (30/51) Installing clang16-headers (16.0.6-r5)
+#10 2.602 (31/51) Installing libxml2 (2.12.7-r0)
+#10 2.620 (32/51) Installing llvm16-libs (16.0.6-r8)
+#10 3.261 (33/51) Installing clang16-libs (16.0.6-r5)
+#10 3.581 (34/51) Installing llvm16-linker-tools (16.0.6-r8)
+#10 3.593 (35/51) Installing clang16 (16.0.6-r5)
+#10 3.608 (36/51) Installing icu-data-en (74.2-r0)
+#10 3.633 Executing icu-data-en-74.2-r0.post-install
+#10 3.636 *
+#10 3.636 * If you need ICU with non-English locales and legacy charset support, install
+#10 3.636 * package icu-data-full.
+#10 3.636 *
+#10 3.636 (37/51) Installing icu-libs (74.2-r0)
+#10 3.672 (38/51) Installing icu (74.2-r0)
+#10 3.690 (39/51) Installing icu-dev (74.2-r0)
+#10 3.739 (40/51) Installing llvm16 (16.0.6-r8)
+#10 4.398 (41/51) Installing lz4-libs (1.9.4-r5)
+#10 4.409 (42/51) Installing lz4-dev (1.9.4-r5)
+#10 4.420 (43/51) Installing zstd (1.5.6-r0)
+#10 4.434 (44/51) Installing zstd-dev (1.5.6-r0)
+#10 4.447 (45/51) Installing postgresql16-dev (16.3-r0)
+#10 4.585 (46/51) Installing mpdecimal (4.0.0-r0)
+#10 4.596 (47/51) Installing python3 (3.12.3-r1)
+#10 4.785 (48/51) Installing python3-pycache-pyc0 (3.12.3-r1)
+#10 4.905 (49/51) Installing pyc (3.12.3-r1)
+#10 4.915 (50/51) Installing python3-pyc (3.12.3-r1)
+#10 4.925 (51/51) Installing python3-dev (3.12.3-r1)
+#10 5.307 Executing busybox-1.36.1-r28.trigger
+#10 5.316 OK: 737 MiB in 88 packages
+#10 DONE 11.2s
+#11 [6/9] COPY requirements.txt /code/
+#11 DONE 0.5s
+#12 [7/9] RUN pip install --no-cache-dir -r requirements.txt
+#12 1.428 Collecting crispy-bootstrap5==2024.2
+#12 1.486   Downloading crispy_bootstrap5-2024.2-py3-none-any.whl (24 kB)
+#12 1.517 Collecting django-allauth==0.61.1
+#12 1.529   Downloading django-allauth-0.61.1.tar.gz (951 kB)
+#12 1.569      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 951.5/951.5 kB 25.4 MB/s eta 0:00:00
+#12 1.967   Installing build dependencies: started
+#12 3.394   Installing build dependencies: finished with status 'done'
+#12 3.395   Getting requirements to build wheel: started
+#12 3.853   Getting requirements to build wheel: finished with status 'done'
+#12 3.856   Installing backend dependencies: started
+#12 4.476   Installing backend dependencies: finished with status 'done'
+#12 4.477   Preparing metadata (pyproject.toml): started
+#12 4.900   Preparing metadata (pyproject.toml): finished with status 'done'
+#12 4.930 Collecting django-ckeditor==6.6.1
+#12 4.941   Downloading django_ckeditor-6.6.1-py3-none-any.whl (2.4 MB)
+#12 4.960      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 146.9 MB/s eta 0:00:00
+#12 4.997 Collecting whitenoise==6.6.0
+#12 5.009   Downloading whitenoise-6.6.0-py3-none-any.whl (19 kB)
+#12 5.263 Collecting pillow==10.2.0
+#12 5.275   Downloading pillow-10.2.0-cp38-cp38-musllinux_1_1_x86_64.whl (4.6 MB)
+#12 5.310      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/4.6 MB 139.2 MB/s eta 0:00:00
+#12 5.343 Collecting gunicorn
+#12 5.354   Downloading gunicorn-22.0.0-py3-none-any.whl (84 kB)
+#12 5.356      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.4/84.4 kB 200.4 MB/s eta 0:00:00
+#12 5.376 Collecting dj-database-url==2.1.0
+#12 5.388   Downloading dj_database_url-2.1.0-py3-none-any.whl (7.7 kB)
+#12 5.863 Collecting boto3==1.34.55
+#12 5.875   Downloading boto3-1.34.55-py3-none-any.whl (139 kB)
+#12 5.878      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 139.3/139.3 kB 185.3 MB/s eta 0:00:00
+#12 5.906 Collecting django-storages==1.14.2
+#12 5.918   Downloading django_storages-1.14.2-py3-none-any.whl (47 kB)
+#12 5.920      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.1/47.1 kB 112.7 MB/s eta 0:00:00
+#12 5.971 Collecting djangorestframework==3.14.0
+#12 5.985   Downloading djangorestframework-3.14.0-py3-none-any.whl (1.1 MB)
+#12 5.993      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 177.7 MB/s eta 0:00:00
+#12 6.016 Collecting django-environ==0.11.2
+#12 6.028   Downloading django_environ-0.11.2-py2.py3-none-any.whl (19 kB)
+#12 6.056 Collecting markdown==3.5.2
+#12 6.067   Downloading Markdown-3.5.2-py3-none-any.whl (103 kB)
+#12 6.070      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.9/103.9 kB 145.4 MB/s eta 0:00:00
+#12 6.088 Collecting django-cloudinary-storage==0.3.0
+#12 6.100   Downloading django_cloudinary_storage-0.3.0-py3-none-any.whl (18 kB)
+#12 6.188 Collecting psycopg2-binary
+#12 6.201   Downloading psycopg2_binary-2.9.9-cp38-cp38-musllinux_1_1_x86_64.whl (2.5 MB)
+#12 6.215      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 217.3 MB/s eta 0:00:00
+#12 6.235 Collecting django-csp==3.8
+#12 6.246   Downloading django_csp-3.8-py3-none-any.whl (17 kB)
+#12 6.315 Collecting black==24.2.0.
+#12 6.327   Downloading black-24.2.0-py3-none-any.whl (200 kB)
+#12 6.330      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.6/200.6 kB 215.5 MB/s eta 0:00:00
+#12 6.461 Collecting faker==23.3.0
+#12 6.473   Downloading Faker-23.3.0-py3-none-any.whl (1.8 MB)
+#12 6.483      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 218.8 MB/s eta 0:00:00
+#12 6.519 Collecting django-debug-toolbar==4.3.0
+#12 6.531   Downloading django_debug_toolbar-4.3.0-py3-none-any.whl (223 kB)
+#12 6.534      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 223.7/223.7 kB 218.3 MB/s eta 0:00:00
+#12 6.867 Collecting coverage==7.4.3
+#12 6.880   Downloading coverage-7.4.3-cp38-cp38-musllinux_1_1_x86_64.whl (240 kB)
+#12 6.883      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 240.4/240.4 kB 211.6 MB/s eta 0:00:00
+#12 6.956 Collecting pytest==8.0.2
+#12 6.969   Downloading pytest-8.0.2-py3-none-any.whl (333 kB)
+#12 7.005      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 334.0/334.0 kB 218.9 MB/s eta 0:00:00
+#12 7.039 Collecting pytest-django==4.8.0
+#12 7.051   Downloading pytest_django-4.8.0-py3-none-any.whl (23 kB)
+#12 7.075 Collecting python-dotenv==1.0.1
+#12 7.085   Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+#12 7.102 Collecting python-decouple
+#12 7.113   Downloading python_decouple-3.8-py3-none-any.whl (9.9 kB)
+#12 7.141 Collecting django-crispy-forms>=2
+#12 7.159   Downloading django_crispy_forms-2.1-py3-none-any.whl (31 kB)
+#12 7.264 Collecting django>=4.2
+#12 7.276   Downloading Django-4.2.13-py3-none-any.whl (8.0 MB)
+#12 7.317      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 204.1 MB/s eta 0:00:00
+#12 7.374 Collecting requests-oauthlib>=0.3.0
+#12 7.385   Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+#12 7.411 Collecting pyjwt[crypto]>=1.7
+#12 7.422   Downloading PyJWT-2.8.0-py3-none-any.whl (22 kB)
+#12 7.459 Collecting python3-openid>=3.0.8
+#12 7.471   Downloading python3_openid-3.2.0-py3-none-any.whl (133 kB)
+#12 7.474      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.7/133.7 kB 217.4 MB/s eta 0:00:00
+#12 7.519 Collecting requests>=2.0.0
+#12 7.530   Downloading requests-2.32.2-py3-none-any.whl (63 kB)
+#12 7.532      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.9/63.9 kB 187.8 MB/s eta 0:00:00
+#12 7.553 Collecting django-js-asset>=2.0
+#12 7.566   Downloading django_js_asset-2.2.0-py3-none-any.whl (4.7 kB)
+#12 7.614 Collecting typing-extensions>=3.10.0.0
+#12 7.625   Downloading typing_extensions-4.12.0-py3-none-any.whl (37 kB)
+#12 7.654 Collecting s3transfer<0.11.0,>=0.10.0
+#12 7.665   Downloading s3transfer-0.10.1-py3-none-any.whl (82 kB)
+#12 7.668      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 82.2/82.2 kB 153.1 MB/s eta 0:00:00
+#12 8.287 Collecting botocore<1.35.0,>=1.34.55
+#12 8.298   Downloading botocore-1.34.112-py3-none-any.whl (12.3 MB)
+#12 8.371      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 172.4 MB/s eta 0:00:00
+#12 8.414 Collecting jmespath<2.0.0,>=0.7.1
+#12 8.424   Downloading jmespath-1.0.1-py3-none-any.whl (20 kB)
+#12 8.499 Collecting pytz
+#12 8.509   Downloading pytz-2024.1-py2.py3-none-any.whl (505 kB)
+#12 8.514      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 505.5/505.5 kB 251.3 MB/s eta 0:00:00
+#12 8.624 Collecting importlib-metadata>=4.4
+#12 8.635   Downloading importlib_metadata-7.1.0-py3-none-any.whl (24 kB)
+#12 8.673 Collecting cloudinary>=1.4.0
+#12 8.684   Downloading cloudinary-1.40.0.tar.gz (177 kB)
+#12 8.687      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 177.2/177.2 kB 155.6 MB/s eta 0:00:00
+#12 8.719   Installing build dependencies: started
+#12 9.881   Installing build dependencies: finished with status 'done'
+#12 9.882   Getting requirements to build wheel: started
+#12 10.14   Getting requirements to build wheel: finished with status 'done'
+#12 10.14   Installing backend dependencies: started
+#12 10.69   Installing backend dependencies: finished with status 'done'
+#12 10.69   Preparing metadata (pyproject.toml): started
+#12 10.95   Preparing metadata (pyproject.toml): finished with status 'done'
+#12 11.00 Collecting mypy-extensions>=0.4.3
+#12 11.01   Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+#12 11.04 Collecting platformdirs>=2
+#12 11.05   Downloading platformdirs-4.2.2-py3-none-any.whl (18 kB)
+#12 11.08 Collecting packaging>=22.0
+#12 11.09   Downloading packaging-24.0-py3-none-any.whl (53 kB)
+#12 11.09      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.5/53.5 kB 169.3 MB/s eta 0:00:00
+#12 11.12 Collecting click>=8.0.0
+#12 11.13   Downloading click-8.1.7-py3-none-any.whl (97 kB)
+#12 11.13      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 189.9 MB/s eta 0:00:00
+#12 11.15 Collecting pathspec>=0.9.0
+#12 11.16   Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+#12 11.19 Collecting tomli>=1.1.0
+#12 11.20   Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+#12 11.22 Collecting python-dateutil>=2.4
+#12 11.23   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#12 11.24      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 218.5 MB/s eta 0:00:00
+#12 11.27 Collecting sqlparse>=0.2
+#12 11.28   Downloading sqlparse-0.5.0-py3-none-any.whl (43 kB)
+#12 11.28      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.0/44.0 kB 166.0 MB/s eta 0:00:00
+#12 11.35 Collecting pluggy<2.0,>=1.3.0
+#12 11.36   Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+#12 11.37 Collecting iniconfig
+#12 11.38   Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+#12 11.41 Collecting exceptiongroup>=1.0.0rc8
+#12 11.42   Downloading exceptiongroup-1.2.1-py3-none-any.whl (16 kB)
+#12 11.51 Collecting urllib3<1.27,>=1.25.4
+#12 11.52   Downloading urllib3-1.26.18-py2.py3-none-any.whl (143 kB)
+#12 11.52      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 143.8/143.8 kB 220.9 MB/s eta 0:00:00
+#12 11.56 Collecting six
+#12 11.57   Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+#12 11.60 Collecting certifi
+#12 11.61   Downloading certifi-2024.2.2-py3-none-any.whl (163 kB)
+#12 11.61      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 163.8/163.8 kB 234.9 MB/s eta 0:00:00
+#12 11.65 Collecting asgiref<4,>=3.6.0
+#12 11.66   Downloading asgiref-3.8.1-py3-none-any.whl (23 kB)
+#12 11.68 Collecting backports.zoneinfo
+#12 11.69   Downloading backports.zoneinfo-0.2.1.tar.gz (74 kB)
+#12 11.69      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.1/74.1 kB 174.0 MB/s eta 0:00:00
+#12 11.71   Installing build dependencies: started
+#12 13.00   Installing build dependencies: finished with status 'done'
+#12 13.00   Getting requirements to build wheel: started
+#12 13.20   Getting requirements to build wheel: finished with status 'done'
+#12 13.20   Preparing metadata (pyproject.toml): started
+#12 13.40   Preparing metadata (pyproject.toml): finished with status 'done'
+#12 13.48 Collecting zipp>=0.5
+#12 13.49   Downloading zipp-3.18.2-py3-none-any.whl (8.3 kB)
+#12 13.78 Collecting cryptography>=3.4.0
+#12 13.79   Downloading cryptography-42.0.7-cp37-abi3-musllinux_1_2_x86_64.whl (3.9 MB)
+#12 13.82      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 176.9 MB/s eta 0:00:00
+#12 13.86 Collecting defusedxml
+#12 13.87   Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+#12 14.04 Collecting charset-normalizer<4,>=2
+#12 14.06   Downloading charset_normalizer-3.3.2-cp38-cp38-musllinux_1_1_x86_64.whl (141 kB)
+#12 14.06      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 141.3/141.3 kB 204.6 MB/s eta 0:00:00
+#12 14.08 Collecting idna<4,>=2.5
+#12 14.09   Downloading idna-3.7-py3-none-any.whl (66 kB)
+#12 14.09      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.8/66.8 kB 147.7 MB/s eta 0:00:00
+#12 14.13 Collecting oauthlib>=3.0.0
+#12 14.14   Downloading oauthlib-3.2.2-py3-none-any.whl (151 kB)
+#12 14.14      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.7/151.7 kB 219.5 MB/s eta 0:00:00
+#12 14.53 Collecting cffi>=1.12
+#12 14.54   Downloading cffi-1.16.0.tar.gz (512 kB)
+#12 14.54      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 512.9/512.9 kB 176.4 MB/s eta 0:00:00
+#12 14.63   Installing build dependencies: started
+#12 15.82   Installing build dependencies: finished with status 'done'
+#12 15.82   Getting requirements to build wheel: started
+#12 16.10   Getting requirements to build wheel: finished with status 'done'
+#12 16.10   Installing backend dependencies: started
+#12 16.66   Installing backend dependencies: finished with status 'done'
+#12 16.66   Preparing metadata (pyproject.toml): started
+#12 17.01   Preparing metadata (pyproject.toml): finished with status 'done'
+#12 17.13 Collecting pycparser
+#12 17.14   Downloading pycparser-2.22-py3-none-any.whl (117 kB)
+#12 17.15      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.6/117.6 kB 148.9 MB/s eta 0:00:00
+#12 17.16 Building wheels for collected packages: django-allauth, cloudinary, backports.zoneinfo, cffi
+#12 17.17   Building wheel for django-allauth (pyproject.toml): started
+#12 18.62   Building wheel for django-allauth (pyproject.toml): finished with status 'done'
+#12 18.62   Created wheel for django-allauth: filename=django_allauth-0.61.1-py3-none-any.whl size=1259785 sha256=96326b5b1c9005eaca9e0e0e0af4431c312fab9eaaca96cf13e5f0a722e44425
+#12 18.62   Stored in directory: /tmp/pip-ephem-wheel-cache-a4lkjx1g/wheels/b9/37/04/3f5fbe3479c2ec6fa3d509868a122d405a963fb13194c764c3
+#12 18.63   Building wheel for cloudinary (pyproject.toml): started
+#12 18.98   Building wheel for cloudinary (pyproject.toml): finished with status 'done'
+#12 18.99   Created wheel for cloudinary: filename=cloudinary-1.40.0-py3-none-any.whl size=139624 sha256=f0dccc1f1d3a09ef6cd9f976f7abcec2450229df0e06976bc7f192f0ba243e8a
+#12 18.99   Stored in directory: /tmp/pip-ephem-wheel-cache-a4lkjx1g/wheels/2d/d3/8d/2cffb9088e430247c3a8490e0ba1942bf5435dbc9bfa37bf1b
+#12 18.99   Building wheel for backports.zoneinfo (pyproject.toml): started
+#12 20.07   Building wheel for backports.zoneinfo (pyproject.toml): finished with status 'done'
+#12 20.07   Created wheel for backports.zoneinfo: filename=backports.zoneinfo-0.2.1-cp38-cp38-linux_x86_64.whl size=83108 sha256=2a6f38ce29ce7820dea2b6e21abd1f0c8cc2199961f136612fc4e40734ae409e
+#12 20.07   Stored in directory: /tmp/pip-ephem-wheel-cache-a4lkjx1g/wheels/c7/de/cc/c405827ed64f81b56142f1e0075a970b2731b00d21983d54fb
+#12 20.07   Building wheel for cffi (pyproject.toml): started
+#12 25.93   Building wheel for cffi (pyproject.toml): finished with status 'done'
+#12 25.93   Created wheel for cffi: filename=cffi-1.16.0-cp38-cp38-linux_x86_64.whl size=458482 sha256=2fdcfddeeae697a8e2826481e2e3b6fc646dcb81512d377905e6236bab067349
+#12 25.93   Stored in directory: /tmp/pip-ephem-wheel-cache-a4lkjx1g/wheels/f4/df/d7/20c740c0373c550cdca4fcf0eb9af36c769ad8553ea81c6a2f
+#12 25.93 Successfully built django-allauth cloudinary backports.zoneinfo cffi
+#12 26.26 Installing collected packages: pytz, python-decouple, zipp, whitenoise, urllib3, typing-extensions, tomli, sqlparse, six, python-dotenv, pyjwt, pycparser, psycopg2-binary, pluggy, platformdirs, pillow, pathspec, packaging, oauthlib, mypy-extensions, jmespath, iniconfig, idna, exceptiongroup, django-environ, defusedxml, coverage, click, charset-normalizer, certifi, backports.zoneinfo, requests, python3-openid, python-dateutil, pytest, importlib-metadata, gunicorn, cloudinary, cffi, black, asgiref, requests-oauthlib, pytest-django, markdown, faker, django-cloudinary-storage, django, cryptography, botocore, s3transfer, djangorestframework, django-storages, django-js-asset, django-debug-toolbar, django-csp, django-crispy-forms, dj-database-url, django-ckeditor, django-allauth, crispy-bootstrap5, boto3
+#12 37.03 Successfully installed asgiref-3.8.1 backports.zoneinfo-0.2.1 black-24.2.0 boto3-1.34.55 botocore-1.34.112 certifi-2024.2.2 cffi-1.16.0 charset-normalizer-3.3.2 click-8.1.7 cloudinary-1.40.0 coverage-7.4.3 crispy-bootstrap5-2024.2 cryptography-42.0.7 defusedxml-0.7.1 dj-database-url-2.1.0 django-4.2.13 django-allauth-0.61.1 django-ckeditor-6.6.1 django-cloudinary-storage-0.3.0 django-crispy-forms-2.1 django-csp-3.8 django-debug-toolbar-4.3.0 django-environ-0.11.2 django-js-asset-2.2.0 django-storages-1.14.2 djangorestframework-3.14.0 exceptiongroup-1.2.1 faker-23.3.0 gunicorn-22.0.0 idna-3.7 importlib-metadata-7.1.0 iniconfig-2.0.0 jmespath-1.0.1 markdown-3.5.2 mypy-extensions-1.0.0 oauthlib-3.2.2 packaging-24.0 pathspec-0.12.1 pillow-10.2.0 platformdirs-4.2.2 pluggy-1.5.0 psycopg2-binary-2.9.9 pycparser-2.22 pyjwt-2.8.0 pytest-8.0.2 pytest-django-4.8.0 python-dateutil-2.9.0.post0 python-decouple-3.8 python-dotenv-1.0.1 python3-openid-3.2.0 pytz-2024.1 requests-2.32.2 requests-oauthlib-2.0.0 s3transfer-0.10.1 six-1.16.0 sqlparse-0.5.0 tomli-2.0.1 typing-extensions-4.12.0 urllib3-1.26.18 whitenoise-6.6.0 zipp-3.18.2
+#12 37.03 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#12 37.14 
+#12 37.14 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#12 37.14 [notice] To update, run: pip install --upgrade pip
+#12 DONE 64.8s
+#13 [8/9] COPY . /code/
+#13 DONE 0.4s
+#14 [9/9] RUN chown -R myuser:mygroup /code
+#14 DONE 0.9s
+#15 exporting to docker image format
+#15 exporting layers
+#15 exporting layers 29.1s done
+#15 exporting manifest sha256:0878456afe8af9c2050c87cd5bdc819d31411b4cc05a8def0b20e38a292fdbf3
+#15 exporting manifest sha256:0878456afe8af9c2050c87cd5bdc819d31411b4cc05a8def0b20e38a292fdbf3 0.2s done
+#15 exporting config sha256:ba2e20f6462f4fc1c52ce5e78f2e706a5687615935d64e05b7319b22b121485f 0.1s done
+#15 DONE 33.2s
+#16 exporting cache to client directory
+#16 preparing build cache for export
+#16 writing cache manifest sha256:a02341feb69b94de750d29f86d082e8268e5db834a759c729032c3e8b13cf052 0.0s done
+#16 DONE 7.0s
+Pushing image to registry...
+==> Deploying...
+Upload succeeded
+DONE
+[2024-05-24 20:01:39 +0000] [1] [INFO] Starting gunicorn 22.0.0
+[2024-05-24 20:01:39 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+[2024-05-24 20:01:39 +0000] [1] [INFO] Using worker: sync
+[2024-05-24 20:01:39 +0000] [8] [INFO] Booting worker with pid: 8
+==> Detected a new open port HTTP:8000
+==> Detected a new open port HTTP:8000
+==> Detected a new open port HTTP:8000
+==> Detected a new open port HTTP:8000
+==> Detected a new open port HTTP:8000
+==> Your service is live 🎉
+==> Detected service running on port 8000
+==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py:61: UserWarning: No directory at: /code/staticfiles/
+  mw_instance = middleware(adapted_handler)
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "db" to address: Name does not resolve
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/allauth/decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/allauth/account/views.py", line 255, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/allauth/account/views.py", line 95, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+  File "/usr/local/lib/python3.8/site-packages/allauth/account/views.py", line 227, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/allauth/account/views.py", line 122, in post
+    if form.is_valid():
+  File "/usr/local/lib/python3.8/site-packages/django/forms/forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+  File "/usr/local/lib/python3.8/site-packages/django/forms/forms.py", line 196, in errors
+    self.full_clean()
+  File "/usr/local/lib/python3.8/site-packages/django/forms/forms.py", line 433, in full_clean
+    self._clean_fields()
+  File "/usr/local/lib/python3.8/site-packages/django/forms/forms.py", line 448, in _clean_fields
+    value = getattr(self, "clean_%s" % name)()
+  File "/usr/local/lib/python3.8/site-packages/allauth/account/forms.py", line 360, in clean_email
+    value = self.validate_unique_email(value)
+  File "/usr/local/lib/python3.8/site-packages/allauth/account/forms.py", line 365, in validate_unique_email
+    assessment = assess_unique_email(value)
+  File "/usr/local/lib/python3.8/site-packages/allauth/account/utils.py", line 548, in assess_unique_email
+    if not filter_users_by_email(email):
+  File "/usr/local/lib/python3.8/site-packages/allauth/account/utils.py", line 478, in filter_users_by_email
+    mails = list(mails)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "db" to address: Name does not resolve
+Not Found: /favicon.ico

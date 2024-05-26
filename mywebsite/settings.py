@@ -1,7 +1,7 @@
 ##import environ
 import os
 from pathlib import Path
-##import dj_database_url
+import dj_database_url      # kvoli pouzivaniu DB URL z Render-a
 from dotenv import load_dotenv
 from decouple import config     # funkcia používanú na čítanie konfiguračných premenných
                                 # z premenných prostredia alebo súboru .env
@@ -33,7 +33,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ##ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 ####ALLOWED_HOSTS = [config('WEB_HOST', default='localhost'), 'localhost']
 #ALLOWED_HOSTS = ['my-demo-website-fmnd.onrender.com', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = [os.getenv('RENDER_SERVICE_NAME') + '.onrender.com', 'localhost']
+ALLOWED_HOSTS = [os.getenv('RENDER_SERVICE_NAME') + '.onrender.com', 'localhost', '127.0.0.1']
 #print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")  # Print the ALLOWED_HOSTS value to debug
 
 #Example of using the service name
@@ -127,6 +127,9 @@ DATABASES = {
     }
 }
 
+DATABASES["default"] = dj_database_url.parse("postgres://prettyprinted_django_render_t4ni_user:TGw32m7C1Tq74FaVoGFo3uQgXuOqNI9D@dpg-cp8r0gcf7o1s739n914g-a.frankfurt-postgres.render.com/prettyprinted_django_render_t4ni")       # pridane kvoli DB na Render-i
+
+# postgres://prettyprinted_django_render_t4ni_user:TGw32m7C1Tq74FaVoGFo3uQgXuOqNI9D@dpg-cp8r0gcf7o1s739n914g-a.frankfurt-postgres.render.com/prettyprinted_django_render_t4ni
 
 AUTH_PASSWORD_VALIDATORS = [
     {
