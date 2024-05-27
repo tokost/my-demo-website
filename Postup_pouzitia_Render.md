@@ -255,7 +255,25 @@ Vyberte si možnosť, ktorá najlepšie vyhovuje vašej situácii. Zrušením ta
 Podľa týchto krokov by ste mali byť schopní vyriešiť problém s nekonzistentnou históriou migrácie a úspešne spustiť svoje migrácie.
 
 9. Ak sú vyriešené problémy s migráciou otvoríme si DBeaver
-    aby sme sa pozreli na našu DB v Render-i musíme nakonfigurovať pripojenie k PostgreSQL tak že použijeme DN URL z Render-a
+    aby sme sa pozreli na našu DB v Render-i. Najskôr však musíme nakonfigurovať pripojenie k PostgrSQL na čo použijeme DB URL z Render-a
     ![](./DBeaver_connection.png)
 
-10. 
+10. Vytvoríme si na Render webovú službu s commitom našej aplikácie ktorý Render použije pre zostavenie služby.
+
+11. V settings.py vytvoríme prepojenie na Render DB pridaním nasledovnych riadkov:
+~~~
+database_url = os.getenv("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)
+~~~
+a do .env pridáme nasledovnú premennú prostredia
+~~~
+DATABASE_URL="postgres://prettyprinted_django_render_t4ni_user:TGw32m7C1Tq74FaVoGFo3uQgXuOqNI9D@dpg-cp8r0gcf7o1s739n914g-a.frankfurt-postgres.render.com/prettyprinted_django_render_t4ni"
+~~~
+
+12. Zmeny poleme na github príkazmi:
+~~~
+$ git add .
+$ git commit -m "Komentár o tom čo sa urobilo"
+$ git push mdw-gh main
+~~~
+    

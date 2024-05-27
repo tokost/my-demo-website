@@ -127,7 +127,9 @@ DATABASES = {
     }
 }
 
-DATABASES["default"] = dj_database_url.parse("postgres://prettyprinted_django_render_t4ni_user:TGw32m7C1Tq74FaVoGFo3uQgXuOqNI9D@dpg-cp8r0gcf7o1s739n914g-a.frankfurt-postgres.render.com/prettyprinted_django_render_t4ni")       # pridane kvoli DB na Render-i
+##database_url = os.environ.get("DATABASE_URL")
+database_url = os.getenv("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)       # pridane kvoli DB na Render-i
 
 # postgres://prettyprinted_django_render_t4ni_user:TGw32m7C1Tq74FaVoGFo3uQgXuOqNI9D@dpg-cp8r0gcf7o1s739n914g-a.frankfurt-postgres.render.com/prettyprinted_django_render_t4ni
 
