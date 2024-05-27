@@ -27,6 +27,7 @@ COPY . /code/
 
 # Set permissions for the non-root user
 RUN chown -R myuser:mygroup /code
+RUN chmod -R 755 /code
 
 # Switch to non-root user to run the application
 USER myuser

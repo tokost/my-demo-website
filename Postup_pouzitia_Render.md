@@ -276,4 +276,18 @@ $ git add .
 $ git commit -m "Komentár o tom čo sa urobilo"
 $ git push mdw-gh main
 ~~~
-    
+
+13. Spustenie konfigurácie web služby na Render
+    * stlačím New + a vyberiem Web service
+    * zvolím "Build and deploy from a Git repository" a stlačím Next
+    * vyberiem posledný commit a stlačím Connect
+    * nastavím Name, Region, Branche a zvolím Free
+    * pridáme všetky premenné prostredia z .env pomocou tlačítka 
+    * spustíme konfiguráciu 
+    * riešim chyby a varovanie zobrazené v log-u
+    * ak je všetko v poriadku stlačím odkaz na stránku resp.
+    * urobím na Webglobe presmerovanie DNS z comto.sk na túto stránku z Rendal
+  
+14. Zmeny vo Web servise riešim cez Environment, Events resp. Settings vytvorenej Webovej služby t.j. bez nutnosti generovania novej
+
+15. Aktualizácia sa robí cez Ents stlačením Deploy
